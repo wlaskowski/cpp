@@ -14,7 +14,7 @@ public:
         nt_count_map['T'] = 0;
     }
 
-    void counter_nt(const std::string& dna) {
+    void find_nt(const std::string& dna) {
         for (char nucleotide : dna) {
             if (nt_count_map.find(nucleotide) != nt_count_map.end()) {
                 nt_count_map[nucleotide]++;
@@ -35,7 +35,7 @@ int main() {
     std::string dna = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC";
 
     nt_counter counter;
-    counter.counter_nt(dna);
+    counter.find_nt(dna);
     counter.print();
 
     return 0;
