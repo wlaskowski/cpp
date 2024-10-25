@@ -6,8 +6,9 @@ public:
     std::string motif;
     int edit_dist;
     int motif_len;
+    int genome_len;
 
-    DNA_data() : genome_seq(""), motif(""), edit_dist(0),  motif_len(0) {}
+    DNA_data() : genome_seq(""), motif(""), edit_dist(0),  motif_len(0), genome_len(0) {}
 
     void set_data() {
         std::cout << "Enter edit distance k: " << std::endl;
@@ -19,31 +20,34 @@ public:
 
         std::cout << "Enter genome sequence: " << std::endl;
         std::cin >> genome_seq;
+        genome_len = genome_seq.length();
+    }
+
+    int calculate_distance(const std::string &fragm_a, const std::string &fragm_b) {
+        int dist = 0;
+        for (int i = 0; i < fragm_a.length(); i++) {
+            if (fragm_a[i] != fragm_b[i]) {
+                dist++;
+            }
+        }
+        return dist;
     }
 
     void find_motifs() {
-        int motif_len = motif.length();
-        int genome_len = genome_seq.length();
-
         for (int i = 0; i <= genome_len - motif_len; i++) {
             std::string genome_substring = genome_seq.substr(i, motif_len);
-            int mismatches = 0;
 
-            for (int j=0; j <= motif_len; j++) {
-                if (motif[j] != genome_substring[j]) {
-                    mismatches++;
-                }
-            }
-            
+            int mismatches = calculate_distance(motif, genome_substring);
+
+            // If mismatches are within the allowed edit distance, output the starting index and motif length
             if (mismatches <= edit_dist) {
-                std::cout << "Motif: " << motif << std::endl << "contains: " << mismatches << " mismatches";
+                std::cout << i << " " << motif_len << std::endl;
             }
         }
     }
-
 };
 
-int main(){
+int main() {
     DNA_data dna;
     dna.set_data();
     dna.find_motifs();
