@@ -39,9 +39,10 @@ public:
 
             int mismatches = calculate_distance(motif, genome_substring);
 
-            // If mismatches are within the allowed edit distance, output the starting index and motif length
             if (mismatches <= edit_dist) {
-                std::cout << i << " " << motif_len << std::endl;
+                for (int j = motif_len - edit_dist; j <= motif_len; j++) {
+                    std::cout << i + 1 << " " << j << std::endl;
+                }
             }
         }
     }
