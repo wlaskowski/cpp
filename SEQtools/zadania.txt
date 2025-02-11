@@ -1,11 +1,16 @@
 Ścieżki wykonanych zadań
 
-DNA 
+DNA
+|
 RNA
+|
 REVC
-  PROT
-    SPLC
-      TRAN
-    PRTM
-  HAMM
-    TRAN
+|
+|--PROT
+|    |--SPLC
+|    |    |--TRAN
+|    |
+|    |--PRTM
+|
+|--HAMM
+|    TRAN
