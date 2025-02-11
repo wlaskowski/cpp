@@ -1,4 +1,4 @@
-**Ścieżki wykonanych zadań**
+Ścieżki wykonanych zadań
 
 DNA
 |
@@ -11,8 +11,8 @@ REVC
 |    |    |--TRAN
 |    |
 |    |--PRTM
-|        |--SPEC (*do zrobienia*)
+|        |--SPEC (do zrobienia)
 |
 |--HAMM
-|    |-- CONS (*do zrobienia*)
-          |-- PDST (*do zrobienia*)
+|    |-- CONS (do zrobienia)
+          |-- PDST (do zrobienia)
